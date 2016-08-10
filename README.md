@@ -16,8 +16,11 @@ python/rawIQ_process.py : python code to read and process uncompressed RAW IQ fi
 	
 Decompress(uncompress) dsor or dsox files into an uncompressed protobuf file:  
 Windows with .NET runtime:  
+
 	decompress.exe source_path output_path  
+	
 or, if Unix-like OS with a Mono runtime:  
+
 	mono decompress.exe source_path output_path  
 
 An uncompressed protobuf file to a human-readable text file, using protoc:  
