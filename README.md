@@ -6,13 +6,13 @@ protoc.exe : protobuffer compiler (for Windows). Can be used to decode a protobu
 psdFile.proto : protobuf definition file for PSD files ("aggregate" files). Defines file structure of MS Spectrum Observatory PSD scan files. Can be used along with protobuf libraries to encode or decode MS Spectrum Observatory PSD files.  
 rawIQ.proto : protobuf definition file for RAW IQ files. Defines the file structure of MS Spectrum Observatory RAW IQ files. Can be used along with protobuf libraries to encode or decode MS Spectrum Observatory RAW IQ files.  
 
-	Sample Outputs/aggregate.zip : Sample output of a processed PSD ("aggregate") file (in ASCII text).  
-	Sample Outputs/RAW_IQ.zip : Sample output of a processed RAW IQ file (in ASCII text).  
+Sample Outputs/aggregate.zip : Sample output of a processed PSD ("aggregate") file (in ASCII text).  
+Sample Outputs/RAW_IQ.zip : Sample output of a processed RAW IQ file (in ASCII text).  
 	
-	python/psdFile_pb2.py : python protobuf "data access code" for PSD scan files. (=Python PSD scan definition file,  auto-generated from psdFile.proto file above.)  
-	python/rawIQ_pb2.py : python protobuf "data access code" for RAW IQ files. (=Python RAW IQ definition file,  auto-generated from rawIQ.proto file above.)  
-	python/psdFile_process.py : python code to read and process uncompressed PSD scan files.  
-	python/rawIQ_process.py : python code to read and process uncompressed RAW IQ files.  
+python/psdFile_pb2.py : python protobuf "data access code" for PSD scan files. (=Python PSD scan definition file,  auto-generated from psdFile.proto file above.)  
+python/rawIQ_pb2.py : python protobuf "data access code" for RAW IQ files. (=Python RAW IQ definition file,  auto-generated from rawIQ.proto file above.)  
+python/psdFile_process.py : python code to read and process uncompressed PSD scan files.  
+python/rawIQ_process.py : python code to read and process uncompressed RAW IQ files.  
 	
 Decompress(uncompress) dsor or dsox files into an uncompressed protobuf file:  
 Windows with .NET runtime:  
@@ -29,7 +29,7 @@ Command to convert PSD files (same assumptions as above):
 
 	protoc -I=./ --decode=MSSO_PSD.ScanFile ./psdFile.proto < input_path > output_path  
 		  
-	*"protoc" must be installed. (see below for "protoc" installation.)  
+*"protoc" must be installed. (see below for "protoc" installation.)  
   
 Using Python to directly process RAW IQ or PSD scan files:  
 -System requirement : Python 2.7 with Protobuf Python bindings, matplotlib.pyplot. (Ubuntu package : python-protobuf)  
@@ -40,7 +40,7 @@ ex:
 
 	python/rawIQ_process.py RAW_IQ.bin					#process the uncompressed file.  
 	
-	*You do NOT need to worry about the max file size when using Python, assuming that your machine has sufficient RAM. (It does use significant amount of RAM.)  
+*You do NOT need to worry about the max file size when using Python, assuming that your machine has sufficient RAM. (It does use significant amount of RAM.)  
 
 Libprotobuf (and protoc) installation:  
 GitHub URL for protobuf: https://github.com/google/protobuf . Download the project. Update CodedInputStream::SetTotalBytesLimit() of google/protobuf/io/coded_stream.h appropriately to adjust the maximum allowable input file size (our RAW IQ files and PSD files can grow much larger than a typical protobuf file size limitation) and build the project.  
