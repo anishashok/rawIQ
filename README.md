@@ -50,10 +50,10 @@ GitHub URL for protobuf: https://github.com/google/protobuf . Download the proje
 	
 If you are using Windows 7 or higher, or using GNU/Linux with Wine installed, you can use the protobuf build uploaded. Max input file size for protoc: 512Mbyte.  
   
-In Linux, you can simply download protobuf by running sudo apt-get protobuf-compiler. However, the maximum input file size for this protoc build is 64Mbyte. (Python scripts will work properly regardlessly)  
+In Linux, you can simply download protobuf by running sudo apt-get protobuf-compiler. However, the maximum input file size for this protoc build is 64Mbyte. (Python scripts will work properly)  
   
 Miscellaneous Notes:  
--*.proto file also serves as a documentation of the RAW IQ / PSD protobuf file structures. I recommend reading those files to understand what kind of metadata can be stored into the files.  
+-*.proto file also serves as a documentation of the RAW IQ / PSD protobuf file structures. We recommend reading those files to understand what kind of metadata can be stored into the files.  
   
 -To convert a timestamp with "scale: TICKS" into a UNIX timestamp, one can simply divide it by 10000000. (Note that this is a special case. The timestamp stored in protobuf-net format is already adjusted to start at 1970/01/01 00:00AM.)  
   
